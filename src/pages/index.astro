@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import '../styles/global.css';
+
+const work = [
+  { name: 'Digipincode India', desc: 'Every pincode, village and LGD panchayat in India — searchable, with DIGIPIN digital addresses.', url: 'https://digipincode.india-in.workers.dev/', tag: 'Data · 6L+ records' },
+  { name: 'ExamStatus', desc: 'Sarkari exam results, admit cards and answer keys, updated continuously.', url: 'https://examstatus.india-in.workers.dev/', tag: 'Portal · live' },
+  { name: 'MapsNearMe', desc: 'A directory of verified businesses across Indian cities with precise mapping.', url: 'https://mapsnearme.pages.dev/', tag: 'Directory' },
+  { name: 'Toilets Near Me', desc: 'Public toilets and washrooms mapped across all Indian cities — free, 24×7 and accessible.', url: 'https://toiletsnearme.pages.dev/', tag: 'Near-me network' },
+  { name: 'Near-me network', desc: '25+ single-purpose location sites: ATMs, EV chargers, rest areas, hospitals and more.', url: 'https://evchargersnearme.pages.dev/', tag: '25 sites' },
+  { name: 'Karva Chauth 2026', desc: 'City-wise moonrise timings, muhurat and vrat vidhi for 45 cities.', url: 'https://karvachauth.pages.dev/', tag: 'Seasonal' },
+];
+---
+<Base title="SKM Studio — Web products, data sites and tools" description="SKM Studio Network builds independent web products: India data directories, near-me location sites and free browser tools.">
+  <section class="wrap pt-10 pb-16">
+    <p class="text-sm mute mb-3">SKM Studio Network</p>
+    <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+      I build <span class="grad">data-heavy websites</span><br />that load instantly and rank.
+    </h1>
+    <p class="mt-6 max-w-2xl mute text-lg">
+      Pincode directories, exam portals, near-me location maps and free browser tools —
+      all built on the open web, all free to use.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href="#work" class="px-5 py-3 rounded-xl font-medium" style="background:var(--color-accent);color:#06210f">See the work</a>
+      <a href="/tools/" class="px-5 py-3 rounded-xl font-medium card">Browse tools</a>
+    </div>
+  </section>
+
+  <section id="work" class="wrap pb-16">
+    <h2 class="text-2xl font-semibold mb-6">Selected work</h2>
+    <div class="grid gap-4 md:grid-cols-2">
+      {work.map((w) => (
+        <a href={w.url} class="card p-6 hover:border-white/25 transition-colors block">
+          <div class="flex items-start justify-between gap-4">
+            <h3 class="font-semibold text-lg">{w.name}</h3>
+            <span class="text-xs px-2 py-1 rounded-md mute" style="border:1px solid var(--color-line)">{w.tag}</span>
+          </div>
+          <p class="mt-3 text-sm mute leading-relaxed">{w.desc}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap pb-16">
+    <div class="card p-8">
+      <h2 class="text-2xl font-semibold">How these are built</h2>
+      <p class="mt-3 mute text-sm leading-relaxed">
+        Astro on Cloudflare's edge, with data served from Cloudflare D1 and Postgres.
+        Static-first pages, zero JavaScript unless a page genuinely needs it, and a
+        sitemap that is generated from what actually exists — not from what was last built.
+      </p>
+    </div>
+  </section>
+</Base>
